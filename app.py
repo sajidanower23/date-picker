@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 
+from flask import Flask
+
 from typing import Optional
-
-from fastapi import FastAPI
-
 import random
 
-app = FastAPI()
+app = Flask(__name__)
 
 dates = [
     'Bowling',
@@ -18,6 +17,6 @@ dates = [
     'Dinner (Fancy)',
 ]
 
-@app.get("/date/pick")
+@app.route("/date/pick")
 def pick_date():
     return random.choice(dates)
